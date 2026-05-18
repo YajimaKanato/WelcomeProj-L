@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] private int _aaa = 2;
+    [SerializeField] private int _aaa = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
