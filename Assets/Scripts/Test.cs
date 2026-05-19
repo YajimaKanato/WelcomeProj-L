@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    int _a = 0;
+    int _a = 2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
