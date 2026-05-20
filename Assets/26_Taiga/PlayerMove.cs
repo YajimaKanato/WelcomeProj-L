@@ -10,13 +10,10 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float minY = -8f;
     [SerializeField] private float maxY = 8f;
     InputAction Move;
-    private Rigidbody2D rb2d;
-    private float moveInput;
 
     void Start()
     {
         Move = _action.FindActionMap("tg").FindAction("Move");
-        rb2d = GetComponent<Rigidbody2D>();
     }
 
     void Update()

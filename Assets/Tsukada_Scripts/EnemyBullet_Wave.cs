@@ -12,7 +12,7 @@ public class EnemyBullet_Wave : EnemyBullet_Base
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public override void BulletMovement()
@@ -22,11 +22,13 @@ public class EnemyBullet_Wave : EnemyBullet_Base
 
         transform.DOLocalMoveX(-8f, 4f)
             .SetEase(Ease.Linear)
-            .SetLoops(-1, LoopType.Incremental);
+            .SetLoops(-1, LoopType.Incremental)
+            .SetLink(gameObject);
 
         transform.DOLocalMoveY(2f, 0.8f)
             .SetEase(Ease.Linear)
-            .SetLoops(-1, LoopType.Yoyo);
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetLink(gameObject);
 
 
         //transform.DOLocalPath(
