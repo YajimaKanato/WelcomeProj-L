@@ -1146,19 +1146,8 @@
                 },
                 {
                     "name": "",
-                    "id": "2acbda11-842b-4815-9829-a5c3f59339bf",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Change",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "fc51ded2-259c-4b76-b469-4168ad338022",
-                    "path": "<Keyboard>/2",
+                    "id": "89e78f3c-9da2-44d5-823c-66ba4fcc7367",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
