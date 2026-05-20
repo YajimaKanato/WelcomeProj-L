@@ -3,32 +3,39 @@
 public class PlayerStatusExecute : MonoBehaviour
 {
     [Header("PlayerのHP")]
-    [SerializeField] private int _playerHP;
+    [SerializeField] private PlayerDefaultStatus _player;
+    [SerializeField] PlayerShot _playerShot;
+    [SerializeField] PlayerHPBar _hpBar;
 
     private PlayerStatus _playerStatus;
 
     private void OnEnable()
     {
-        _playerStatus = new PlayerStatus(_playerHP);
+        _playerStatus = new PlayerStatus(_player);
+        _playerShot?.SetPlayerInstance(_playerStatus);
     }
 
-    private void OnDisable()
+    public void ChangeHP(int damage)
     {
-
+        if (_playerStatus.DecreaseHP(damage)) FindFirstObjectByType<TimeManager>()?.StopTimer();
+        _hpBar?.UpdateBar(_playerStatus.Rate);
     }
 
-    private void ChangeHP(int damage)
+    public void ChangeDirection(int move)
     {
-        _playerStatus.DecreaseHP(damage);
+        _playerStatus.SelectDirection(move);
     }
 
-    private void ChangeDirection()
+    public void ChangeType(int move)
     {
-        _playerStatus.SelectDirection();
+        _playerStatus.SelectType(move);
     }
 
-    private void ChangeType()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        _playerStatus.SelectType();
+        if (collision.CompareTag("Bullet"))
+        {
+            ChangeHP(1);
+        }
     }
 }

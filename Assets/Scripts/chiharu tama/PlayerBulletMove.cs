@@ -8,18 +8,11 @@ public class PlayerBulletMove : MonoBehaviour
     [Header("UnitList")]
     [SerializeField] private UnitList _unitlist;
 
-    private Dictionary<ConditionSetting, Sprite> _dic = new Dictionary<ConditionSetting, Sprite>();
-  
     private float playerBulletSpeed = 0.05f;   // 弾のスピードを決める変数
     private Renderer _renderer;
-    private void Start()
-    {
-        foreach (var item in _unitlist.UnitsList)
-        {
-            _dic.TryAdd(item.Conditions, item.UnitSprite);
-        }
-        _renderer = GetComponent<Renderer>();
-    }
+
+    public MinoType Type { get; private set; }
+    public MinoDirection Direction { get; private set; }
 
     void Update()
     {
@@ -28,13 +21,24 @@ public class PlayerBulletMove : MonoBehaviour
             Pool.Instance.Release(this.gameObject);
     }
 
-    private void Changesprite(ConditionSetting c)
+    public void Changesprite((MinoType, MinoDirection) c)
     {
-        var sprite = _dic[c];
+        Sprite sprite = null;
+        foreach (var item in _unitlist.UnitsList)
+        {
+            if (c == (item.Conditions.Type, item.Conditions.MyDirection))
+            {
+                sprite = item.UnitSprite;
+                break;
+            }
+        }
+        Type = c.Item1;
+        Direction = c.Item2;
+        _renderer = GetComponent<Renderer>();
         GetComponent<SpriteRenderer>().sprite = sprite;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == _tag)
         {

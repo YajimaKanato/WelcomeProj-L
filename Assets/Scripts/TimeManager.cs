@@ -51,11 +51,16 @@ public class TimeManager : MonoBehaviour
             _delta -= Time.deltaTime;
             if (_delta <= 0)
             {
-                _isMeasuring = false;
+                StopTimer();
                 _delta = 0;
-                _manager?.SceneChange();
             }
             _timerText.text = _delta.ToString("0.0");
         }
+    }
+
+    public void StopTimer()
+    {
+        _isMeasuring = false;
+        _manager?.SceneChange();
     }
 }

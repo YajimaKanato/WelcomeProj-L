@@ -15,6 +15,7 @@ public class EnemyUnit : MonoBehaviour
     [SerializeField] int _score = 10;
     private float _timer = 3f;
     IngameManager _gameManager;
+    Enemy _enemy;
 
     private void Start()
     {
@@ -37,11 +38,13 @@ public class EnemyUnit : MonoBehaviour
     {
         if (_type == minoType && _direction == minoDirection)
         {
+            //Debug.Log("Correct Hit");
             _difenceCurrent++;
             if (_difenceCurrent >= _difenceCount)
             {
                 ScoreManager.Instance.UpdateScore(_score);
                 _gameManager?.UpdateScore();
+                _enemy?.Damage();
                 Destroy(gameObject);
             }
         }
@@ -50,9 +53,9 @@ public class EnemyUnit : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bullet"))
+        if (other.CompareTag("Lmino") && other.gameObject.TryGetComponent<PlayerBulletMove>(out var player))
         {
-            BulletCurrent(MinoType.NormalL, MinoDirection.Up);
+            BulletCurrent(player.Type, player.Direction);
         }
     }
 
@@ -73,5 +76,8 @@ public class EnemyUnit : MonoBehaviour
         GameObject Bullet = Instantiate(_bullet, transform.position, transform.rotation);
     }
 
-
+    public void SetParentEnemy(Enemy enemy)
+    {
+        _enemy = enemy;
+    }
 }

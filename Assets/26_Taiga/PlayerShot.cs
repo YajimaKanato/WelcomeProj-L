@@ -3,7 +3,7 @@ using UnityEngine.InputSystem; // 新しいInput Systemを使用
 
 public class PlayerShot : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab;  // 弾プレハブ
+    [SerializeField] private PlayerBulletMove bulletPrefab;  // 弾プレハブ
     [SerializeField] private Transform spawnPoint;      // 弾の出る位置
     [SerializeField] private float bulletSpeed = 10f;   // 弾速
     [SerializeField] private float fireRate = 0.5f;     // 発射間隔
@@ -12,6 +12,7 @@ public class PlayerShot : MonoBehaviour
 
     [SerializeField] private InputActionAsset _action;
     private InputAction bulletAction;
+    PlayerStatus _status;
 
     void Start()
     {
@@ -41,11 +42,12 @@ public class PlayerShot : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            rb.linearVelocity = spawnPoint.right * bulletSpeed;
-        }
+        var bullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
+        bullet.Changesprite((_status.Type, _status.Direction));
+    }
+
+    public void SetPlayerInstance(PlayerStatus status)
+    {
+        _status = status;
     }
 }
