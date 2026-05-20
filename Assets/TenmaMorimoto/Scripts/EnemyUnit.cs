@@ -14,8 +14,13 @@ public class EnemyUnit : MonoBehaviour
     [SerializeField] private float _bulletSpeed = 5f;
     [SerializeField] int _score = 10;
     private float _timer = 3f;
+    IngameManager _gameManager;
 
+    private void Start()
+    {
 
+        _gameManager = FindFirstObjectByType<IngameManager>();
+    }
 
 
 
@@ -36,6 +41,7 @@ public class EnemyUnit : MonoBehaviour
             if (_difenceCurrent >= _difenceCount)
             {
                 ScoreManager.Instance.UpdateScore(_score);
+                _gameManager?.UpdateScore();
                 Destroy(gameObject);
             }
         }

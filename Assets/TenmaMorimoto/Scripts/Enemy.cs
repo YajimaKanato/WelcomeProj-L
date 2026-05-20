@@ -7,13 +7,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyStatusBase _enemy;
 
     [SerializeField] private GameObject[] _unitPrefabs;
+    [SerializeField] int _score = 100;
     [SerializeField] int _lifeTime = 10;
     EnemyGenerator _generator;
+    IngameManager _gameManager;
 
     public void InItt(EnemyGenerator generator)
     {
         _generator = generator;
         _status = new EnemyStatus(_enemy);
+        _gameManager = FindFirstObjectByType<IngameManager>();
         StartCoroutine(LifeTime());
     }
 
@@ -25,6 +28,8 @@ public class Enemy : MonoBehaviour
         if (_hp <= 0)
         {
             _generator?.GenerateEnemy();
+            ScoreManager.Instance.UpdateScore(_score);
+            _gameManager?.UpdateScore();
             Destroy(gameObject);
         }
 

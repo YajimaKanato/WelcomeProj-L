@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     static ScoreManager _instance;
     public static ScoreManager Instance => _instance;
     int _curretnScore = 0;
+    public int CurretnScore => _curretnScore;
     List<int> _ranking = new() { 0, 0, 0, 0, 0 };
     public IReadOnlyList<int> Ranking => _ranking;
 

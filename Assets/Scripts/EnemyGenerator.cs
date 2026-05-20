@@ -6,6 +6,7 @@ public class EnemyGenerator : MonoBehaviour
     public void GenerateEnemy()
     {
         var rand = Random.Range(0, _enemies.Length);
-        Instantiate(_enemies[rand], transform.position, transform.rotation);
+        var go = Instantiate(_enemies[rand], transform.position, transform.rotation);
+        go.InItt(this);
     }
 }
