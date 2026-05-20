@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -6,24 +7,29 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyStatusBase _enemy;
 
     [SerializeField] private GameObject[] _unitPrefabs;
+    [SerializeField] int _score = 100;
+    [SerializeField] int _lifeTime = 10;
+    EnemyGenerator _generator;
+    IngameManager _gameManager;
 
-    private void Start()
+    public void InItt(EnemyGenerator generator)
     {
-        InItt();
-    }
-
-    void InItt ()
-    {
+        _generator = generator;
         _status = new EnemyStatus(_enemy);
+        _gameManager = FindFirstObjectByType<IngameManager>();
+        StartCoroutine(LifeTime());
     }
 
     [ContextMenu("damage")]
     public void Damage()
     {
-       var _hp = _status.Damage();
+        var _hp = _status.Damage();
 
-        if (_hp <= 0 )
+        if (_hp <= 0)
         {
+            _generator?.GenerateEnemy();
+            ScoreManager.Instance.UpdateScore(_score);
+            _gameManager?.UpdateScore();
             Destroy(gameObject);
         }
 
@@ -32,15 +38,19 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
-        int index = Random.Range(0, _unitPrefabs.Length);
-        GameObject selectedPrefab = _unitPrefabs[index];
+        var pos = new Vector3[] { new Vector3(5.5f, 3f, 0f), new Vector3(5.5f, 0f, 0f), new Vector3(5.5f, -3f, 0f) };
 
-
-
-        Instantiate(selectedPrefab, new Vector3(5.5f, 3f, 0f),Quaternion.identity);
-        Instantiate(selectedPrefab, new Vector3(5.5f, 0f, 0f), Quaternion.identity);
-        Instantiate(selectedPrefab, new Vector3(5.5f, -3f, 0f), Quaternion.identity);
-
+        for (int i = 0; i < 3; i++)
+        {
+            int index = Random.Range(0, _unitPrefabs.Length);
+            Instantiate(_unitPrefabs[index], pos[i], Quaternion.identity);
+        }
     }
 
+    IEnumerator LifeTime()
+    {
+        yield return new WaitForSeconds(_lifeTime);
+        _generator?.GenerateEnemy();
+        Destroy(gameObject);
+    }
 }

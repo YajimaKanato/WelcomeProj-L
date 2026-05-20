@@ -9,12 +9,13 @@ public class EnemyBullet_Following : EnemyBullet_Base
 
     void Start()
     {
+        target = GameObject.Find("Player").transform;
         BulletMovement();
     }
 
     void Update()
     {
-        
+
         if (transform.position.x <= target.position.x + 4)
         {
             return;
@@ -29,6 +30,7 @@ public class EnemyBullet_Following : EnemyBullet_Base
     {
         tween = transform.DOMove(target.position, 1f)
             .SetEase(Ease.Linear)
-            .SetLoops(-1, LoopType.Incremental);
+            .SetLoops(-1, LoopType.Incremental)
+            .SetLink(gameObject);
     }
 }
