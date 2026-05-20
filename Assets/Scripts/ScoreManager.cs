@@ -25,19 +25,33 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    [ContextMenu("UpdateScore")]
+    void DemoUpdateScore()
+    {
+        UpdateScore(100);
+    }
+
     public void UpdateScore(int score)
     {
         _curretnScore += score;
     }
 
-    public void CalculateRanking(int score)
+    public void CalculateRanking()
     {
-        _ranking.Add(score);
+        _ranking.Add(_curretnScore);
         _ranking = _ranking.OrderByDescending(x => x).Take(5).ToList();
     }
 
-    void ResetScore(Scene scene,LoadSceneMode mode)
+    void ResetScore(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Ingame") _curretnScore = 0;
+        switch (scene.name)
+        {
+            case "Ingame":
+                _curretnScore = 0;
+                break;
+            case "Result":
+                CalculateRanking();
+                break;
+        }
     }
 }
