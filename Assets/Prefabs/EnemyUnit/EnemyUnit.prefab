@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 2287290570062605404}
   - component: {fileID: 4811258244389543902}
   - component: {fileID: 4352201445793703867}
-  - component: {fileID: 3721102292313004436}
-  - component: {fileID: -4685679926007091102}
+  - component: {fileID: 5104167159320323349}
+  - component: {fileID: -1660115271890123128}
   m_Layer: 0
-  m_Name: EnemyUnit 2
-  m_TagString: Untagged
+  m_Name: EnemyUnit
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,13 +102,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8674ebd8940f2de468a6b8baf04973ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 7893585116826816681, guid: 200ccb06fa1633a48838d901c42f51af, type: 3}
+  _bullet: {fileID: 8974002677481485892, guid: 463aca4985f7fbe42be76e114f0ae110, type: 3}
   _direction: 0
   _type: 0
   _difenceCount: 3
-  _bulletInterbal: 1
+  _bulletInterbal: 2
   _bulletSpeed: 5
---- !u!50 &3721102292313004436
+  _score: 10
+--- !u!50 &5104167159320323349
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -135,7 +136,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &-4685679926007091102
+--- !u!61 &-1660115271890123128
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
