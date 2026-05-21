@@ -42,6 +42,14 @@ public class PlayerStatusExecute : MonoBehaviour
     public void ChangeType(int move)
     {
         _playerStatus.SelectType(move);
+        foreach (var item in _unitList.UnitsList)
+        {
+            if ((_playerStatus.Type, _playerStatus.Direction) == (item.Conditions.Type, item.Conditions.MyDirection))
+            {
+                _bullet.sprite = item.UnitSprite;
+                break;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

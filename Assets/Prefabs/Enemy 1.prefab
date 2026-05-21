@@ -103,10 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hpBar: {fileID: 6647737345084880253}
   _enemy: {fileID: 11400000, guid: d2e55db4811aec6448150d5ed633cfcc, type: 2}
-  _unitPrefabs:
-  - {fileID: 837073982190771363, guid: f58e15f97a123724bb6b59d14b685530, type: 3}
-  - {fileID: 837073982190771363, guid: 9d5d3ec0d9b5bf24aa094820ea5f01b0, type: 3}
-  - {fileID: 837073982190771363, guid: 217640f12ecce9743b7924446adc8e67, type: 3}
+  _unitPrefabs: {fileID: 11400000, guid: c91b884e32e9af444a73b1af4ea0a365, type: 2}
   _score: 100
   _lifeTime: 7
 --- !u!1001 &2243166267622848432
