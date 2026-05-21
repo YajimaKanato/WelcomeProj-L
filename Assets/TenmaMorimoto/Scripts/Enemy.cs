@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] EnemyHPBar _hpBar;
     [SerializeField] private EnemyStatusBase _enemy;
 
-    [SerializeField] private GameObject[] _unitPrefabs;
+    [SerializeField] private Units _unitPrefabs;
     [SerializeField] int _score = 100;
     [SerializeField] int _lifeTime = 10;
     EnemyGenerator _generator;
@@ -25,8 +25,8 @@ public class Enemy : MonoBehaviour
         _units = new EnemyUnit[3];
         for (int i = 0; i < 3; i++)
         {
-            int index = Random.Range(0, _unitPrefabs.Length);
-            var go = Instantiate(_unitPrefabs[index], pos[i], Quaternion.identity).GetComponent<EnemyUnit>();
+            int index = Random.Range(0, _unitPrefabs.Unit.Length);
+            var go = Instantiate(_unitPrefabs.Unit[index], pos[i], Quaternion.identity).GetComponent<EnemyUnit>();
             go?.SetParentEnemy(this);
             _units[i] = go;
         }

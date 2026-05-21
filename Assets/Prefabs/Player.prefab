@@ -130,7 +130,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: -2845378092334758684, guid: 6a95019edaae2bd4bad74c4650f6af1b, type: 3}
   spawnPoint: {fileID: 4421614116232361739}
   bulletSpeed: 10
-  fireRate: 0.3
+  fireRate: 0.2
   CanShot: 0
   _action: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!58 &6928392689306957200

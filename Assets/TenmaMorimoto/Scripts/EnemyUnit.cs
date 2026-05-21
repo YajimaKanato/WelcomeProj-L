@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyUnit : MonoBehaviour
 {
-    [SerializeField] GameObject _bullet;
+    [SerializeField] Bullets _bullet;
 
     [SerializeField] MinoDirection _direction;
     [SerializeField] MinoType _type;
@@ -16,6 +16,7 @@ public class EnemyUnit : MonoBehaviour
     private float _timer = 3f;
     IngameManager _gameManager;
     Enemy _enemy;
+    int _index;
 
     private void Start()
     {
@@ -31,7 +32,10 @@ public class EnemyUnit : MonoBehaviour
     }
 
 
-
+    private void OnEnable()
+    {
+        _index = Random.Range(0, _bullet.Bullet.Length);
+    }
 
 
     void BulletCurrent(MinoType minoType, MinoDirection minoDirection)
@@ -73,7 +77,7 @@ public class EnemyUnit : MonoBehaviour
     void BulletShoot()
     {
         if (!_bullet) return;
-        GameObject Bullet = Instantiate(_bullet, transform.position, transform.rotation);
+        var Bullet = Instantiate(_bullet.Bullet[_index], transform.position, transform.rotation);
     }
 
     public void SetParentEnemy(Enemy enemy)
