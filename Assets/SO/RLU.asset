@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 438c9cbfc9e7c924ba8a408fc4f87626, type: 3}
-  m_Name: UnitList
+  m_Script: {fileID: 11500000, guid: afd021bb33b851f489152cdb5143b414, type: 3}
+  m_Name: RLU
   m_EditorClassIdentifier: 
-  _unitList:
-  - {fileID: 11400000, guid: 25ac6263834c85145bc47c4f8b2d4949, type: 2}
+  _unitSprite: {fileID: -9121098471438612433, guid: 4f99aaa29b54dc44aaefca2d499cc1e4, type: 3}
+  _condition:
+    _myDirection: 0
+    _myType: 1

@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] InputActionAsset _action;
+    [SerializeField] PlayerStatusExecute _player;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float minX = -8f;
     [SerializeField] private float maxX = 8f;
@@ -12,6 +13,7 @@ public class PlayerMove : MonoBehaviour
     InputAction Move;
     InputAction _rotate;
     InputAction _change;
+    public bool CanMove;
 
     void Awake()
     {
@@ -34,6 +36,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (!CanMove) return;
         Vector3 speed = Move.ReadValue<Vector2>();
         var a = transform.position;
         a += speed * Time.deltaTime * moveSpeed;
@@ -45,11 +48,12 @@ public class PlayerMove : MonoBehaviour
 
     void RotateMino(InputAction.CallbackContext ctx)
     {
-
+        var dir = ctx.ReadValue<float>();
+        _player?.ChangeDirection((int)Mathf.Sign(dir));
     }
 
     void ChangeMino(InputAction.CallbackContext ctx)
     {
-
+        _player?.ChangeType(1);
     }
 }

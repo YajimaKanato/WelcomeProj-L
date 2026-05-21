@@ -21,7 +21,7 @@ public class EnemyBullet_Straight : EnemyBullet_Base
            .SetLoops(-1, LoopType.Incremental)
            .SetLink(gameObject);
 
-        Debug.Log("移動");
+        //Debug.Log("移動");
     }
 
 
