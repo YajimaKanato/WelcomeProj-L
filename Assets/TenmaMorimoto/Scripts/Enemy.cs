@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -44,6 +45,8 @@ public class Enemy : MonoBehaviour
         {
             Dead();
         }
+        transform.DOPunchPosition(new Vector3(0, 0.5f, 0), 0.8f, 10, 1f);
+
     }
 
     IEnumerator LifeTime()
