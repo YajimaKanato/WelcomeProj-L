@@ -45,7 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b182240cc4c954587ed9da780f5765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clips: []
+  _clips:
+  - _clip: {fileID: 8300000, guid: dbf1b7da877e1db42a5dc7e2587bab14, type: 3}
+    _clipName: Title
+  - _clip: {fileID: 8300000, guid: 75d0710b89af8704aac7892148023965, type: 3}
+    _clipName: Ingame
+  - _clip: {fileID: 8300000, guid: cccfa989bca870647bebd4a274a38aa7, type: 3}
+    _clipName: Result
 --- !u!82 &5934488161640133578
 AudioSource:
   m_ObjectHideFlags: 0

@@ -45,7 +45,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b7afea09800a648811ac58a1c7a4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clips: []
+  _clips:
+  - _clip: {fileID: 8300000, guid: ddb67e4b74f6b214882124479a937302, type: 3}
+    _clipName: blockMove
+  - _clip: {fileID: 8300000, guid: b8d29425af5c2da4a9b9b3dd09e42a2b, type: 3}
+    _clipName: cursor
+  - _clip: {fileID: 8300000, guid: 5d9924b0fa87fad4a8cbc410e04ddf47, type: 3}
+    _clipName: damage
+  - _clip: {fileID: 8300000, guid: c94baf723d2af5e41a3b2917b15ba569, type: 3}
+    _clipName: destroy
+  - _clip: {fileID: 8300000, guid: 61555f7c8971c8849a498ff143a59c41, type: 3}
+    _clipName: pose
+  - _clip: {fileID: 8300000, guid: 46ec5c39080097c4c949f09d5ff31429, type: 3}
+    _clipName: select
+  - _clip: {fileID: 8300000, guid: d2ea072f312b73a4b8e23cea8006e62f, type: 3}
+    _clipName: shot
 --- !u!82 &6010157067687700252
 AudioSource:
   m_ObjectHideFlags: 0
