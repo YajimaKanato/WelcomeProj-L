@@ -44,11 +44,13 @@ public class EnemyUnit : MonoBehaviour
         {
             //Debug.Log("Correct Hit");
             _difenceCurrent++;
+            SEManager.Instance.PlaySE("damage");
             if (_difenceCurrent >= _difenceCount)
             {
                 ScoreManager.Instance.UpdateScore(_score);
                 _gameManager?.UpdateScore();
                 _enemy?.Damage();
+                SEManager.Instance.PlaySE("destroy");
                 Destroy(gameObject);
             }
         }
@@ -77,6 +79,7 @@ public class EnemyUnit : MonoBehaviour
     void BulletShoot()
     {
         if (!_bullet) return;
+        SEManager.Instance.PlaySE("shot");
         var Bullet = Instantiate(_bullet.Bullet[_index], transform.position, transform.rotation);
     }
 

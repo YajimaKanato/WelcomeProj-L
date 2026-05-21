@@ -40,9 +40,11 @@ public class Enemy : MonoBehaviour
 
         var hp = _status.Damage();
         _hpBar?.UpdateBar(_status.Rate);
+        SEManager.Instance.PlaySE("damage");
 
         if (hp <= 0)
         {
+            SEManager.Instance.PlaySE("destroy");
             Dead();
         }
         transform.DOPunchPosition(new Vector3(0, 0.5f, 0), 0.8f, 10, 1f);
