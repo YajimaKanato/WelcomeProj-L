@@ -16,7 +16,7 @@ public class EnemyBullet_Straight : EnemyBullet_Base
 
     public override void BulletMovement()
     {
-        transform.DOLocalMoveX(-10f, 1f)
+        transform.DOLocalMoveX(-10f, 1.5f)
             .SetEase(Ease.Linear)
            .SetLoops(-1, LoopType.Incremental)
            .SetLink(gameObject);

@@ -111,9 +111,9 @@ MonoBehaviour:
   _player: {fileID: 7800088963760999964}
   moveSpeed: 5
   minX: -8
-  maxX: -6
+  maxX: -5.5
   minY: -4
-  maxY: 4
+  maxY: 3.5
   CanMove: 0
 --- !u!114 &8224481554730965411
 MonoBehaviour:

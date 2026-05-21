@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69321677b79e1244c8ee3c1251950acb, type: 3}
   m_Name: PlayerDefaultStatus
   m_EditorClassIdentifier: 
-  _hp: 10
+  _hp: 20
   _minoTypes: 0000000001000000
   _minoDirections: 00000000030000000100000002000000

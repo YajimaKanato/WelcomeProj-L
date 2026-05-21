@@ -16,7 +16,7 @@ public class EnemyBullet_Following : EnemyBullet_Base
     void Update()
     {
 
-        if (transform.position.x <= target.position.x + 4)
+        if (transform.position.x <= target.position.x + 5)
         {
             return;
         }
