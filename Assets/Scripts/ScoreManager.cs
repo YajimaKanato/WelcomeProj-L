@@ -1,7 +1,8 @@
-using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using unityroom.Api;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class ScoreManager : MonoBehaviour
     {
         _ranking.Add(_curretnScore);
         _ranking = _ranking.OrderByDescending(x => x).Take(5).ToList();
+        UnityroomApiClient.Instance.SendScore(1, _curretnScore, ScoreboardWriteMode.HighScoreDesc);
     }
 
     void ResetScore(Scene scene, LoadSceneMode mode)
