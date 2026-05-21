@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBulletMove : MonoBehaviour
@@ -10,6 +9,7 @@ public class PlayerBulletMove : MonoBehaviour
 
     private float playerBulletSpeed = 0.05f;   // 弾のスピードを決める変数
     private Renderer _renderer;
+    private bool _isRelease = false;
 
     public MinoType Type { get; private set; }
     public MinoDirection Direction { get; private set; }
@@ -40,6 +40,8 @@ public class PlayerBulletMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (_isRelease) return;
+        _isRelease = true;
         if (collision.gameObject.tag == _tag)
         {
             Pool.Instance.Release(this.gameObject);
