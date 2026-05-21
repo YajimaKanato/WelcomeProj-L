@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tag: Enemy
   _unitlist: {fileID: 11400000, guid: f863201681a162e4197d8cb2621acaaa, type: 2}
+  hitEffectPrefab: {fileID: 5819486379956076367, guid: aba2186d61bae23469ffe5049f06cea2, type: 3}
 --- !u!58 &-5247895702260902892
 CircleCollider2D:
   m_ObjectHideFlags: 0

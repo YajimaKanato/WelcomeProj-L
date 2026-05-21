@@ -114,6 +114,7 @@ MonoBehaviour:
   maxX: -6
   minY: -4
   maxY: 4
+  CanMove: 0
 --- !u!114 &8224481554730965411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +131,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 4421614116232361739}
   bulletSpeed: 10
   fireRate: 0.3
+  CanShot: 0
   _action: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!58 &6928392689306957200
 CircleCollider2D:
@@ -208,6 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 11400000, guid: da5dc17eae079a8428a527544fa958cd, type: 2}
   _playerShot: {fileID: 8224481554730965411}
+  _hpBar: {fileID: 0}
+  CanHit: 0
 --- !u!114 &4920855659661462374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,12 +302,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4138950180037835215, guid: 82a870d29e766e24bb9d0269bd30f6c3, type: 3}
+  m_Sprite: {fileID: 4138950180037835215, guid: fd2249f60791e6840aaafb2a8f820844, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.86, y: 1.708}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

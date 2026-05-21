@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd021bb33b851f489152cdb5143b414, type: 3}
   m_Name: RLU
   m_EditorClassIdentifier: 
-  _unitSprite: {fileID: -9121098471438612433, guid: 4f99aaa29b54dc44aaefca2d499cc1e4, type: 3}
+  _unitSprite: {fileID: -9176887122577149368, guid: 9ff509aa7914fbc41bf4c3886a3c2510, type: 3}
   _condition:
     _myDirection: 0
     _myType: 1

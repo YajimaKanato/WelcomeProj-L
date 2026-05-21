@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] int _lifeTime = 10;
     EnemyGenerator _generator;
     IngameManager _gameManager;
+    EnemyUnit[] _units;
     bool _isDead;
     public void InItt(EnemyGenerator generator)
     {
@@ -20,11 +21,13 @@ public class Enemy : MonoBehaviour
         _gameManager = FindFirstObjectByType<IngameManager>();
         var pos = new Vector3[] { new Vector3(5.5f, 3f, 0f), new Vector3(5.5f, 0f, 0f), new Vector3(5.5f, -3f, 0f) };
 
+        _units = new EnemyUnit[3];
         for (int i = 0; i < 3; i++)
         {
             int index = Random.Range(0, _unitPrefabs.Length);
-            var go = Instantiate(_unitPrefabs[index], pos[i], Quaternion.identity);
-            go?.GetComponent<EnemyUnit>()?.SetParentEnemy(this);
+            var go = Instantiate(_unitPrefabs[index], pos[i], Quaternion.identity).GetComponent<EnemyUnit>();
+            go?.SetParentEnemy(this);
+            _units[i] = go;
         }
         StartCoroutine(LifeTime());
     }
@@ -60,6 +63,11 @@ public class Enemy : MonoBehaviour
         _generator?.GenerateEnemy();
         ScoreManager.Instance.UpdateScore(_score);
         _gameManager?.UpdateScore();
+        foreach (var unit in _units)
+        {
+            if (unit && unit.gameObject)
+                Destroy(unit.gameObject);
+        }
 
         Destroy(gameObject);
     }
