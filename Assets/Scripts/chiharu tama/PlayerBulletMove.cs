@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal;
 using UnityEngine;
 
 public class PlayerBulletMove : MonoBehaviour
@@ -6,6 +7,7 @@ public class PlayerBulletMove : MonoBehaviour
     [SerializeField] private string _tag;
     [Header("UnitList")]
     [SerializeField] private UnitList _unitlist;
+    [SerializeField] GameObject _effect;
 
     private float playerBulletSpeed = 0.5f;   // 弾のスピードを決める変数
     private Renderer _renderer;
@@ -44,6 +46,7 @@ public class PlayerBulletMove : MonoBehaviour
         _isRelease = true;
         if (collision.gameObject.tag == _tag)
         {
+            Instantiate(_effect, transform.position, Quaternion.identity);
             Pool.Instance.Release(this.gameObject);
         }
     }
