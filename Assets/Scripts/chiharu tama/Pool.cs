@@ -59,11 +59,11 @@ public class Pool : MonoBehaviour
 
     public GameObject Get()
     {
-        return _pool.Get();
+        return _pool?.Get();
     }
     public void Release(GameObject obj)
     {
-        _pool.Release(obj);
+        _pool?.Release(obj);
     }
 }
 

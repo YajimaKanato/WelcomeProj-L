@@ -6,6 +6,7 @@ public class PlayerStatusExecute : MonoBehaviour
     [SerializeField] private PlayerDefaultStatus _player;
     [SerializeField] PlayerShot _playerShot;
     [SerializeField] PlayerHPBar _hpBar;
+    public bool CanHit;
 
     private PlayerStatus _playerStatus;
 
@@ -17,6 +18,7 @@ public class PlayerStatusExecute : MonoBehaviour
 
     public void ChangeHP(int damage)
     {
+        if (!CanHit) return;
         if (_playerStatus.DecreaseHP(damage)) FindFirstObjectByType<TimeManager>()?.StopTimer();
         _hpBar?.UpdateBar(_playerStatus.Rate);
     }

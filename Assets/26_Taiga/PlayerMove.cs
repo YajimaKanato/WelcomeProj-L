@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
     InputAction Move;
     InputAction _rotate;
     InputAction _change;
+    public bool CanMove;
 
     void Awake()
     {
@@ -35,6 +36,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (!CanMove) return;
         Vector3 speed = Move.ReadValue<Vector2>();
         var a = transform.position;
         a += speed * Time.deltaTime * moveSpeed;

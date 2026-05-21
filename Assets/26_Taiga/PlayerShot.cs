@@ -9,6 +9,7 @@ public class PlayerShot : MonoBehaviour
     [SerializeField] private float fireRate = 0.5f;     // 発射間隔
 
     private float nextFireTime = 0f;                    // 次に撃てる時刻
+    public bool CanShot;
 
     [SerializeField] private InputActionAsset _action;
     private InputAction bulletAction;
@@ -19,24 +20,13 @@ public class PlayerShot : MonoBehaviour
         bulletAction = _action.FindActionMap("tg").FindAction("Bullet");
     }
 
-    void OnEnable()
-    {
-
-        bulletAction?.Enable();
-    }
-
-    void OnDisable()
-    {
-        bulletAction?.Disable();
-    }
-
     void Update()
     {
-
-        if (bulletAction != null && bulletAction.IsPressed() && Time.time >= nextFireTime)
+        nextFireTime += Time.deltaTime;
+        if (CanShot && bulletAction != null && bulletAction.IsPressed() && nextFireTime >= fireRate)
         {
             Shoot();
-            nextFireTime = Time.time + fireRate;
+            nextFireTime = 0f;
         }
     }
 

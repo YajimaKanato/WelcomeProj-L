@@ -8,10 +8,12 @@ using UnityEngine.InputSystem;
 public class TimeManager : MonoBehaviour
 {
     [SerializeField] IngameManager _manager;
+    [SerializeField] PlayerShot _player;
+    [SerializeField] PlayerMove _playerMove;
+    [SerializeField] PlayerStatusExecute _playerStatus;
     [SerializeField] EnemyGenerator _generator;
     [SerializeField] TextMeshProUGUI _countDownText;
     [SerializeField] TextMeshProUGUI _timerText;
-    [SerializeField] InputActionAsset _action;
     [SerializeField] int _countDown = 3;
     [SerializeField] int _timeLimit = 60;
     bool _isMeasuring;
@@ -19,10 +21,12 @@ public class TimeManager : MonoBehaviour
 
     public void Init()
     {
-        _action.Disable();
         _delta = _timeLimit;
         _timerText.text = _delta.ToString("0.0");
         _countDownText.text = "";
+        _player.CanShot = false;
+        _playerMove.CanMove = false;
+        _playerStatus.CanHit = false;
     }
 
     public async UniTask StartCountDown()
@@ -39,7 +43,9 @@ public class TimeManager : MonoBehaviour
         _countDownText.text = "Start!";
         _countDownText.DOFade(0, 0.5f).SetDelay(0.5f);
         await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
-        _action.Enable();
+        _player.CanShot = true;
+        _playerMove.CanMove = true;
+        _playerStatus.CanHit = true;
         _generator?.GenerateEnemy();
         _isMeasuring = true;
     }
@@ -60,7 +66,7 @@ public class TimeManager : MonoBehaviour
 
     public void StopTimer()
     {
+        if (_isMeasuring) _manager?.SceneChange();
         _isMeasuring = false;
-        _manager?.SceneChange();
     }
 }
