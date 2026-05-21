@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd021bb33b851f489152cdb5143b414, type: 3}
   m_Name: LU
   m_EditorClassIdentifier: 
-  _unitSprite: {fileID: 4138950180037835215, guid: 82a870d29e766e24bb9d0269bd30f6c3, type: 3}
+  _unitSprite: {fileID: 4138950180037835215, guid: fd2249f60791e6840aaafb2a8f820844, type: 3}
   _condition:
     _myDirection: 0
     _myType: 0
