@@ -36,7 +36,6 @@ public class Ranking : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         var ranking = ScoreManager.Instance.Ranking;
-        var c = 0;
         for (int i = 0; i < ranking.Count; i++)
         {
             _scores[i].text = (i + 1) + " : " + ranking[i].ToString("00000");
