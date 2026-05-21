@@ -8,7 +8,7 @@ public class PlayerBulletMove : MonoBehaviour
     [SerializeField] private UnitList _unitlist;
     [SerializeField] private GameObject hitEffectPrefab;
 
-    private float playerBulletSpeed = 0.05f;   // 弾のスピードを決める変数
+    private float playerBulletSpeed = 0.5f;   // 弾のスピードを決める変数
     private Renderer _renderer;
     private bool _isRelease = false;
 

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Xml.Serialization;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.GameCenter;
 
 public class Effect_EnemyDown : MonoBehaviour
 {
@@ -30,12 +27,16 @@ public class Effect_EnemyDown : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //InstantiateBombEffect();
-            InvokeRepeating(nameof(InstantiateBombEffect), 0.1f, 0.5f);
+            
 
             
         }
     }
 
+    public void Invoke()
+    {
+        InvokeRepeating(nameof(InstantiateBombEffect), 0.1f, 0.5f);
+    }
     
 
     //public IEnumerator InstantiateBombEffect()
@@ -47,7 +48,6 @@ public class Effect_EnemyDown : MonoBehaviour
 
         repeatTime++;
 
-        Debug.Log(repeatTime);
 
         //for (int i = 0; i < 5; i++)
         //{
