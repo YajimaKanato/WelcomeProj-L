@@ -34,6 +34,7 @@ public class PlayerShot : MonoBehaviour
     {
         var bullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
         bullet.Changesprite((_status.Type, _status.Direction));
+        SEManager.Instance.PlaySE("shot");
     }
 
     public void SetPlayerInstance(PlayerStatus status)
