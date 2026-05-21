@@ -17,6 +17,7 @@ public class ScoreManager : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
+            Application.targetFrameRate = 60;
             UnityEngine.SceneManagement.SceneManager.sceneLoaded += ResetScore;
             DontDestroyOnLoad(gameObject);
         }

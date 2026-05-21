@@ -20,7 +20,7 @@ public class EnemyBullet_Wave : EnemyBullet_Base
         float Posx = gameObject.transform.position.x;
         float Posy = gameObject.transform.position.y;
 
-        transform.DOLocalMoveX(-8f, 4f)
+        transform.DOLocalMoveX(-8f, 2.5f)
             .SetEase(Ease.Linear)
             .SetLoops(-1, LoopType.Incremental)
             .SetLink(gameObject);
