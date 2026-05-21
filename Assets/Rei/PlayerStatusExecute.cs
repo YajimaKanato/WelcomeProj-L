@@ -22,7 +22,12 @@ public class PlayerStatusExecute : MonoBehaviour
     public void ChangeHP(int damage)
     {
         if (!CanHit) return;
-        if (_playerStatus.DecreaseHP(damage)) FindFirstObjectByType<TimeManager>()?.StopTimer();
+        SEManager.Instance.PlaySE("damage");
+        if (_playerStatus.DecreaseHP(damage))
+        {
+            FindFirstObjectByType<TimeManager>()?.StopTimer();
+            SEManager.Instance.PlaySE("destroy");
+        }
         _hpBar?.UpdateBar(_playerStatus.Rate);
     }
 
