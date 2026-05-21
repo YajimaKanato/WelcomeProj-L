@@ -19,11 +19,7 @@ public class PlayerStatusExecute : MonoBehaviour
     public void ChangeHP(int damage)
     {
         if (!CanHit) return;
-        if (_playerStatus.DecreaseHP(damage))
-        {
-            FindFirstObjectByType<TimeManager>()?.StopTimer();
-            SEManager.Instance.PlaySE("destroy");
-        }
+        if (_playerStatus.DecreaseHP(damage)) FindFirstObjectByType<TimeManager>()?.StopTimer();
         _hpBar?.UpdateBar(_playerStatus.Rate);
     }
 
@@ -42,7 +38,6 @@ public class PlayerStatusExecute : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             ChangeHP(1);
-            SEManager.Instance.PlaySE("damage");
         }
     }
 }

@@ -1,12 +1,10 @@
-using DG.Tweening;
-using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     EnemyStatus _status;
-    [SerializeField] private EnemyHPBar _hpBar;
+    [SerializeField] EnemyHPBar _hpBar;
     [SerializeField] private EnemyStatusBase _enemy;
 
     [SerializeField] private GameObject[] _unitPrefabs;
@@ -16,7 +14,6 @@ public class Enemy : MonoBehaviour
     IngameManager _gameManager;
     EnemyUnit[] _units;
     bool _isDead;
-
     public void InItt(EnemyGenerator generator)
     {
         _generator = generator;
@@ -47,7 +44,6 @@ public class Enemy : MonoBehaviour
         {
             Dead();
         }
-        transform.DOPunchPosition(new Vector3(0, 0.5f, 0), 0.8f, 10, 1f);
     }
 
     IEnumerator LifeTime()

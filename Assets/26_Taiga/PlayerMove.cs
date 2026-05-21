@@ -50,12 +50,10 @@ public class PlayerMove : MonoBehaviour
     {
         var dir = ctx.ReadValue<float>();
         _player?.ChangeDirection((int)Mathf.Sign(dir));
-        SEManager.Instance.PlaySE("blockMove");
     }
 
     void ChangeMino(InputAction.CallbackContext ctx)
     {
         _player?.ChangeType(1);
-        SEManager.Instance.PlaySE("select");
     }
 }
