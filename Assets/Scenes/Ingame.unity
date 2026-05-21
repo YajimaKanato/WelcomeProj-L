@@ -977,7 +977,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5819266430478593950, guid: 7e14cbb86afb9d54b84023f945f938cf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 30.63
       objectReference: {fileID: 0}
     - target: {fileID: 5819266430478593950, guid: 7e14cbb86afb9d54b84023f945f938cf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1032,6 +1032,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 940730438}
     m_Modifications:
+    - target: {fileID: 254335629079704109, guid: 18a73e15e1e5b4343ada70ce8129c6c6, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8181155238327748755, guid: 8abe0b134a02bcd42947fab2fda9ea6a, type: 2}
+    - target: {fileID: 254335629079704109, guid: 18a73e15e1e5b4343ada70ce8129c6c6, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4490159564945425395, guid: 18a73e15e1e5b4343ada70ce8129c6c6, type: 3}
       propertyPath: m_Name
       value: Timer
@@ -1347,6 +1355,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7284417355270710254, guid: 5a7898a149029944c8d2da3d1b1baf20, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8181155238327748755, guid: 8abe0b134a02bcd42947fab2fda9ea6a, type: 2}
+    - target: {fileID: 7284417355270710254, guid: 5a7898a149029944c8d2da3d1b1baf20, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1386,7 +1402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4038511095546919390, guid: cb98c1bfbcd0a494c8dabba730201248, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4038511095546919390, guid: cb98c1bfbcd0a494c8dabba730201248, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1438,6 +1454,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4038511095546919390, guid: cb98c1bfbcd0a494c8dabba730201248, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351513757827412526, guid: cb98c1bfbcd0a494c8dabba730201248, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8181155238327748755, guid: 8abe0b134a02bcd42947fab2fda9ea6a, type: 2}
+    - target: {fileID: 4351513757827412526, guid: cb98c1bfbcd0a494c8dabba730201248, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6162786105591250253, guid: cb98c1bfbcd0a494c8dabba730201248, type: 3}

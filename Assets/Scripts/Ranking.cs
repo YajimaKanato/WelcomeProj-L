@@ -2,7 +2,6 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Ranking : MonoBehaviour
 {
@@ -10,10 +9,16 @@ public class Ranking : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _myScore;
     [Header("その他のスコア")]
     [SerializeField] TextMeshProUGUI[] _scores;
-   
+    [SerializeField] CanvasGroup _canvasGroup;
+
     private void Start()
     {
         CurrentRank();
+        foreach (var score in _scores)
+        {
+            score.text = "";
+        }
+        _canvasGroup.alpha = 0;
     }
 
     public void CurrentRank()
@@ -40,7 +45,9 @@ public class Ranking : MonoBehaviour
         {
             _scores[i].text = (i + 1) + " : " + ranking[i].ToString("00000");
         }
-        transform.DOLocalMoveX(490f, 3f);
+        var s = DOTween.Sequence();
+        s.Append(transform.DOLocalMoveX(490f, 3f));
+        s.Join(_canvasGroup.DOFade(1, 3));
         yield return null;
     }
 }

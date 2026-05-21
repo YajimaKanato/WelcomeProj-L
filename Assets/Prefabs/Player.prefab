@@ -211,6 +211,8 @@ MonoBehaviour:
   _player: {fileID: 11400000, guid: da5dc17eae079a8428a527544fa958cd, type: 2}
   _playerShot: {fileID: 8224481554730965411}
   _hpBar: {fileID: 0}
+  _unitList: {fileID: 11400000, guid: f863201681a162e4197d8cb2621acaaa, type: 2}
+  _bullet: {fileID: 8341214326535745947}
   CanHit: 0
 --- !u!114 &4920855659661462374
 MonoBehaviour:

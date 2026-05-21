@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.U2D;
 
 public class PlayerStatusExecute : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class PlayerStatusExecute : MonoBehaviour
     [SerializeField] private PlayerDefaultStatus _player;
     [SerializeField] PlayerShot _playerShot;
     [SerializeField] PlayerHPBar _hpBar;
+    [SerializeField] UnitList _unitList;
+    [SerializeField] SpriteRenderer _bullet;
     public bool CanHit;
 
     private PlayerStatus _playerStatus;
@@ -26,6 +29,14 @@ public class PlayerStatusExecute : MonoBehaviour
     public void ChangeDirection(int move)
     {
         _playerStatus.SelectDirection(move);
+        foreach (var item in _unitList.UnitsList)
+        {
+            if ((_playerStatus.Type, _playerStatus.Direction) == (item.Conditions.Type, item.Conditions.MyDirection))
+            {
+                _bullet.sprite = item.UnitSprite;
+                break;
+            }
+        }
     }
 
     public void ChangeType(int move)
